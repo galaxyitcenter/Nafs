@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Navz</string>
+    <string name="question1">1.મતદાન આવી રહ્યું છે, કઈ નેતા, પાર્ટીને જીતાવા ઈચ્છો છો?</string>
+    <string name="question2">2.શું તમે કોંગ્રેસની રાજનીતી થી સંતુષ્ટ છો કે પછી કોઈ નવો પ્રયોગ કરવા માગો છો?</string>
+
+    <string name="question4">4.જો ભાજપે કોઈ સારો મુસ્લીમ પ્રતિનિધિ ઊભો કર્યો તો તમે એને વોટ આપશો ?</string>
+    <string name="question3">3.શું તમે કોઈ કબીલ મુસ્લીમ નેતાને કે જે ના કોંગ્રેસ ના ભાજપ નો હોય, જિતાડવા માગશો?</string>
+    <string name="question5">5.ત્રણ તલાખ પર તમારી શું સલાહ છે ?</string>
+    <string name="question6">6.કઈ પાર્ટીનો નેતા સારો કામ કરી રહ્યો છે તમારા વિસ્તાર માં?</string>
+    <string name="question7">7.કોઈ પાર્ટીના નેતાને તમે વ્યક્તિગત રીતે ઓળખો છો ?</string>
+    <string name="question8">8.શૌથી વધારે પ્રચલિત નેતા કોણ છે?</string>
+    <string name="question9">9.કયા નેતાએ તમારું કામ કર્યું છે?, તમારા વિસ્તારમાં કામ કર્યું છે?</string>
+    <string name="strYes">હા</string>
+    <string name="strNo">ના</string>
+    <string name="question11">10.શું તમે ભાજપ અને કોંગ્રેસ સિવાય કોઈ પાર્ટીનું નામ જાણો છો ?</string>
+    <string name="question13">11.તમે કોને જિતાડવા માગો છો ? પાર્ટીને કે નેતા ને?</string>
+    <string name="question14">12.તમારા વિસ્તારમાં સૌથી મોટી તકલીફ શું છે અને ક્યારથી છે?</string>
+    <string name="question15">13.તકલીફના નિદાન માટે તમે કોઈ પહેલ કરી?</string>
+    <string name="question16">14.તમારા વિસ્તારમાં પાવરફૂલ નેતા કોણ છે?</string>
+    <string name="question18">16.શું તમે સ્માર્ટ ફોન રાખો છો? ફોન નંબર શું છે ?</string>
+    <string name="question19">17.સોશિયલ મીડિયા માં એક્ટિવ છો?</string>
+    <string name="question20">18.તમારો નેશનલ હીરો કોણ છે? મોદી સિવાય કયા મોટા નેતા ને જાણો છો ?</string>
+    <string name="question21">19.ગુજરાતનો સૌ થી પ્રખ્યાત, કબીલ નેતા કોને માનો છો ?</string>
+    <string name="question22">20.૨૦૧૭ માં તમે કોની સરકાર ગુજરાતમાં જોવા માગો છો ?</string>
+    <string name="question23">21.શું કોંગ્રેસને કોઈ મુસ્લીમ ઉમેદવારને ઊભો કરવો જોઈએ ?</string>
+    <string name="question24">22.ગઈ વખતે કોને વોટ આપ્યો હતો? આ વખતે પણ આપવાના છો ?</string>
+    <string name="question25">23.શું સૂફી Anwar Husain Shaikh માં તમને કોઈ કાબિલિયત દેખાઈ? શું તમે એમનું નામ સંભાળ્યું છે? એમને જોયા, ક્યારેય એમને મળ્યા છો ?</string>
+    <string name="strDontKnow">ખબર નથી</string>
+    <string name="q15">15.શું તમારા ઘરે છાપું આવે છે? કયું આવે છે?</string>
+    <string name="strEducation">શિક્ષણ</string>
+    <string name="strOcupation">વ્યવસાય</string>
+    <string name="pleaseEnterAns">કૃપા કરીને જવાબ દાખલ કરો</string>
+
+
+</resources>
