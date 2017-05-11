@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 
 import java.util.HashMap;
 
-public class SurvayActivity extends AppCompatActivity
+public class SurveyActivity extends AppCompatActivity
 {
     EditText ans1,cmt2,ans5,ans6,ans8,ans9,ans11,ans12,cmt13,ans14,cmt15,cmt16,ans18A,ans18B,ans19,ans20,ans22A,ans22B,cmt23,occ,edu;
     EditText []cmt;

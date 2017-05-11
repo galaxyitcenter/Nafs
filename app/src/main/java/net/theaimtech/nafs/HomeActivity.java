@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         bopen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,SurvayActivity.class));
+                startActivity(new Intent(HomeActivity.this,SurveyActivity.class));
             }
         });
         webview.setWebViewClient(new MyWebViewClient());
@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         webview.getSettings().setLoadWithOverviewMode(true);
         webview.loadUrl(ServerConstants.VOTER_ID);
         diag = new ProgressDialog(this);
+        diag.setCancelable(false);
         diag.setMessage("Loading...");
         diag.show();
     }
@@ -136,6 +137,7 @@ public class HomeActivity extends AppCompatActivity {
         public void onLoadResource(WebView view, String url) {
             if (url.equals("http://erms.gujarat.gov.in/ceo-gujarat/master/images/banner.jpg")) {
                 view.setVisibility(View.GONE);
+                diag.show();
 
             }
         }
@@ -158,6 +160,7 @@ public class HomeActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            diag.dismiss();
                             webview.setVisibility(View.VISIBLE);
                             webview.loadData(html, "text/html", "UTF-8");
                             bopen.setVisibility(View.VISIBLE);

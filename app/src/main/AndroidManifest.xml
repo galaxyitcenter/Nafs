@@ -32,7 +32,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenActivity" />
         <activity
-            android:name=".SurvayActivity"
+            android:name=".SurveyActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".HomeActivity"></activity>
     </application>

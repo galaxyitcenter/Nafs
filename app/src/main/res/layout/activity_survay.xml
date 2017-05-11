@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="25dp"
-        tools:context="net.theaimtech.nafs.SurvayActivity">
+        tools:context="net.theaimtech.nafs.SurveyActivity">
 
         <TextView
             android:id="@+id/tvQuestion1"
