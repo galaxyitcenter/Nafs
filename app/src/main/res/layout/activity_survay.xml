@@ -513,6 +513,7 @@
                 android:text="@string/strEducation" />
 
             <EditText
+                android:id="@+id/etEducation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -531,13 +532,14 @@
                 android:text="@string/strOcupation" />
 
             <EditText
+                android:id="@+id/etOccupation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:inputType="text" />
         </LinearLayout>
         <Button
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btnShowQ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

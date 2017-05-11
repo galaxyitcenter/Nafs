@@ -9,12 +9,16 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.HashMap;
+
 public class SurvayActivity extends AppCompatActivity
 {
     EditText ans1,cmt2,ans5,ans6,ans8,ans9,ans11,ans12,cmt13,ans14,cmt15,cmt16,ans18A,ans18B,ans19,ans20,ans22A,ans22B,cmt23,occ,edu;
+    EditText []cmt;
     RadioGroup rg2,rg3,rg4,rg7,rg10,rg13,rg15,rg16,rg17,rg21,rg23;
     RadioButton rb2,rb3,rb4,rb7,rb10,rb13,rb15,rb16,rb17,rb21,rb23;
     Button Submit;
+    HashMap<String,String> map;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,12 +40,15 @@ public class SurvayActivity extends AppCompatActivity
         ans22B= (EditText) findViewById(R.id.etAns22B);
 
         cmt2= (EditText) findViewById(R.id.comentForans2);
-
         cmt13= (EditText) findViewById(R.id.comentForans13);
         cmt15= (EditText) findViewById(R.id.comentForans15);
         cmt16= (EditText) findViewById(R.id.comentForans16);
         cmt23= (EditText) findViewById(R.id.comentForans23);
 
+        edu= (EditText) findViewById(R.id.etEducation);
+        occ= (EditText) findViewById(R.id.etOccupation);
+        cmt23= (EditText) findViewById(R.id.comentForans23);
+        cmt23= (EditText) findViewById(R.id.comentForans23);
         rg2= (RadioGroup) findViewById(R.id.rgAns2);
         rb2= (RadioButton) findViewById(R.id.rbNoForAns2);
         rg3= (RadioGroup) findViewById(R.id.rgAns3);
@@ -80,7 +87,7 @@ public class SurvayActivity extends AppCompatActivity
     void registerButtonControls()
     {
 
-        Submit= (Button) findViewById(R.id.btnSubmit);
+        Submit= (Button) findViewById(R.id.btnShowQ);
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -144,6 +151,15 @@ public class SurvayActivity extends AppCompatActivity
                     ans20.setError(getString(R.string.pleaseEnterAns));
                     return;
                 }
+                else if (TextUtils.isEmpty(edu.getText().toString().trim()))
+                {
+                    edu.setError(getString(R.string.pleaseEnterAns));
+                    return;
+                } else if (TextUtils.isEmpty(occ.getText().toString().trim()))
+                {
+                    occ.setError(getString(R.string.pleaseEnterAns));
+                    return;
+                }
                 else if(s2==-1)
                 {
                    rb2.setError(getString(R.string.pleaseEnterAns));
@@ -202,6 +218,31 @@ public class SurvayActivity extends AppCompatActivity
                 }
                 else
                 {
+                    map.put("ans1",ans1.getText().toString());
+                    map.put("ans5",ans5.getText().toString());
+                    map.put("ans6",ans6.getText().toString());
+                    map.put("ans8",ans8.getText().toString());
+                    map.put("ans9",ans9.getText().toString());
+                    map.put("ans11",ans11.getText().toString());
+                    map.put("ans12",ans12.getText().toString());
+                    map.put("ans14",ans14.getText().toString());
+                    map.put("ans18A",ans18A.getText().toString());
+                    map.put("ans18B",ans18B.getText().toString());
+                    map.put("ans19",ans19.getText().toString());
+                    map.put("ans20",ans20.getText().toString());
+                    map.put("ans22A",ans22A.getText().toString());
+                    map.put("ans22B",ans22B.getText().toString());
+
+                    map.put("cmt2",cmt2.getText().toString());
+                    map.put("cmt13",cmt13.getText().toString());
+                    map.put("cmt15",cmt15.getText().toString());
+                    map.put("cmt16",cmt16.getText().toString());
+                    map.put("cmt23",cmt23.getText().toString());
+
+                    map.put("Education",edu.getText().toString());
+                    map.put("Occupation",occ.getText().toString());
+
+
                     String[] ans=null;
                     ans[1]=ans1.getText().toString();
                     View view=(View)findViewById(rg2.getCheckedRadioButtonId());

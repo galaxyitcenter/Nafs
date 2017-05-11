@@ -2,6 +2,7 @@ package net.theaimtech.nafs;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -16,6 +17,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.Toast;
 
 import net.theaimtech.nafs.utils.Preference;
@@ -24,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     private WebView webview;
     private ProgressDialog diag;
     private boolean isLoadingGujarat;
-
+    Button bopen;
     @Override
     protected void onResume() {
         super.onResume();
@@ -38,6 +40,13 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setTitle("Welcome " + AppController.loggedInUser.getUsername());
         webview = (WebView) findViewById(R.id.wvMain);
+        bopen=(Button)findViewById(R.id.btnShowQ);
+        bopen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,SurvayActivity.class));
+            }
+        });
         webview.setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = webview.getSettings();
         webview.getSettings().setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.0; en-us; Droid Build/ESD20) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17");
@@ -127,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
         public void onLoadResource(WebView view, String url) {
             if (url.equals("http://erms.gujarat.gov.in/ceo-gujarat/master/images/banner.jpg")) {
                 view.setVisibility(View.GONE);
-                isLoadingGujarat = true;
+
             }
         }
     }
@@ -151,6 +160,8 @@ public class HomeActivity extends AppCompatActivity {
                         public void run() {
                             webview.setVisibility(View.VISIBLE);
                             webview.loadData(html, "text/html", "UTF-8");
+                            bopen.setVisibility(View.VISIBLE);
+
                         }
                     });
 
