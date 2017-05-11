@@ -30,6 +30,15 @@
     <string name="strEducation">શિક્ષણ</string>
     <string name="strOcupation">વ્યવસાય</string>
     <string name="pleaseEnterAns">કૃપા કરીને જવાબ દાખલ કરો</string>
+    <string name="submit">Submit</string>
+    <string name="all_right_reserved_nabz">All right reserved © Nabz</string>
+    <string name="nabz">NABZ</string>
+    <string name="survey_made_easy">Survey Made easy</string>
+    <string name="welcome_to_nabz">Welcome to NABZ</string>
+    <string name="login_here">Login here</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
 
 
 </resources>

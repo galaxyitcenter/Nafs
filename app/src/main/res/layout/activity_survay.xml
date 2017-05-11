@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="25dp"
         tools:context="net.theaimtech.nafs.SurvayActivity">
@@ -15,33 +15,32 @@
             android:id="@+id/tvQuestion1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question1" />
+            android:text="@string/question1"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/ans1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question2" />
+            android:text="@string/question2"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbDontKnowForAns2"
                 android:layout_width="wrap_content"
@@ -49,41 +48,36 @@
                 android:layout_weight="1"
                 android:text="@string/strDontKnow" />
             <RadioButton
-
                 android:id="@+id/rbNoForAns2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/strYes" />
-
-
+                android:text="@string/strNo" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/comentForans2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question3" />
+            android:text="@string/question3"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbNoForAns3"
                 android:layout_width="wrap_content"
@@ -96,472 +90,462 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strDontKnow" />
-
-
-
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvQuestion4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question4" />
+            android:text="@string/question4"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbNoForAns4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strNo" />
-
-
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvQuestion5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question5" />
+            android:text="@string/question5"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/ans5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question6" />
+            android:text="@string/question6"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/ans6"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question7" />
+            android:text="@string/question7"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbNoForAns7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strNo" />
-
-
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvQuestion8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question8" />
+            android:text="@string/question8"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/ans8"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question9" />
+            android:text="@string/question9"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/etAns9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question11" />
+            android:text="@string/question11"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbNoForAns10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strNo" />
-
-
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvQuestion11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question13" />
+            android:text="@string/question13"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/etAns11"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question14" />
+            android:text="@string/question14"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/etAns12"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvQuestion13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/question15" />
+            android:text="@string/question15"
+            android:textColor="@color/colorPrimary" />
 
         <RadioGroup
             android:id="@+id/rgAns13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-
             <RadioButton
-
                 android:id="@+id/rbYesForAns13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/strYes" />
-
             <RadioButton
                 android:id="@+id/rbNoForAns13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/strNo" />
-
-
         </RadioGroup>
 
         <EditText
             android:id="@+id/comentForans13"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question16"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/etAns14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/q15"
+            android:textColor="@color/colorPrimary" />
+
+        <RadioGroup
+            android:id="@+id/rgAns15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rbYesForAns15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strYes" />
+            <RadioButton
+                android:id="@+id/rbNoForAns15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strNo" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/comentForans15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tvQuestion16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question18" />
+
+        <RadioGroup
+            android:id="@+id/rgAns16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rbYesForAns16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strYes" />
+            <RadioButton
+                android:id="@+id/rbNoForAns16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strNo" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/comentForans16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question19"
+            android:textColor="@color/colorPrimary" />
+
+        <RadioGroup
+            android:id="@+id/rgAns17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rbYesForAns17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strYes" />
+            <RadioButton
+                android:id="@+id/rbNoForAns17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strNo" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/tvQuestion18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question20"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/etAns18A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etAns18B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question21"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/etAns19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question22"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/etAns20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tvQuestion21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question23" />
+
+        <RadioGroup
+            android:id="@+id/rgAns21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rbYesForAns21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strYes" />
+            <RadioButton
+                android:id="@+id/rbNoForAns21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strNo" />
+            <RadioButton
+                android:id="@+id/rbDontKnowForAns21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strDontKnow" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvQuestion22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question24"
+            android:textColor="@color/colorPrimary" />
 
 
-     <TextView
-          android:id="@+id/tvQuestion14"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question16" />
+        <EditText
+            android:id="@+id/etAns22A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
-      <EditText
-          android:id="@+id/etAns14"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-     <TextView
-         android:id="@+id/tvQuestion15"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:text="@string/q15" />
+        <EditText
+            android:id="@+id/etAns22B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
-     <RadioGroup
-         android:id="@+id/rgAns15"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvQuestion23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question25"
+            android:textColor="@color/colorPrimary" />
 
+        <RadioGroup
+            android:id="@+id/rgAns23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rbYesForAns23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strYes" />
+            <RadioButton
+                android:id="@+id/rbNoForAns23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strNo" />
+        </RadioGroup>
 
-         <RadioButton
+        <EditText
+            android:id="@+id/comentForans23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
-             android:id="@+id/rbYesForAns15"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:text="@string/strYes" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
 
-         <RadioButton
-             android:id="@+id/rbNoForAns15"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:text="@string/strNo" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strEducation" />
 
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:inputType="text" />
+        </LinearLayout>
 
-     </RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
 
-     <EditText
-         android:id="@+id/comentForans15"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/tvQuestion16"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question18" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strOcupation" />
 
-      <RadioGroup
-          android:id="@+id/rgAns16"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-
-
-          <RadioButton
-
-              android:id="@+id/rbYesForAns16"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strYes" />
-
-          <RadioButton
-              android:id="@+id/rbNoForAns16"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strNo" />
-
-
-      </RadioGroup>
-
-      <EditText
-          android:id="@+id/comentForans16"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/tvQuestion17"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question19" />
-
-      <RadioGroup
-          android:id="@+id/rgAns17"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-
-
-          <RadioButton
-
-              android:id="@+id/rbYesForAns17"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strYes" />
-
-          <RadioButton
-              android:id="@+id/rbNoForAns17"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strNo" />
-
-
-      </RadioGroup>
-      <TextView
-          android:id="@+id/tvQuestion18"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question20" />
-      <EditText
-          android:id="@+id/etAns18A"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <EditText
-          android:id="@+id/etAns18B"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-    <TextView
-          android:id="@+id/tvQuestion19"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question21" />
-      <EditText
-          android:id="@+id/etAns19"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/tvQuestion20"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question22" />
-      <EditText
-          android:id="@+id/etAns20"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/tvQuestion21"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question23" />
-
-      <RadioGroup
-          android:id="@+id/rgAns21"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-
-
-          <RadioButton
-
-              android:id="@+id/rbYesForAns21"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strYes" />
-
-          <RadioButton
-              android:id="@+id/rbNoForAns21"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strNo" />
-
-          <RadioButton
-              android:id="@+id/rbDontKnowForAns21"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strDontKnow" />
-
-      </RadioGroup>
-      <TextView
-          android:id="@+id/tvQuestion22"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question24" />
-     <RadioGroup
-         android:id="@+id/rgAns22"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content">
-         </RadioGroup>
-      <EditText
-          android:id="@+id/etAns22A"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <EditText
-          android:id="@+id/etAns22B"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/tvQuestion23"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/question25" />
-      <RadioGroup
-          android:id="@+id/rgAns23"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-
-
-          <RadioButton
-
-              android:id="@+id/rbYesForAns23"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strYes" />
-
-          <RadioButton
-              android:id="@+id/rbNoForAns23"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:text="@string/strNo" />
-
-
-
-
-      </RadioGroup>
-      <EditText
-          android:id="@+id/comentForans23"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:weightSum="4">
-         <TextView
-             android:layout_width="0dp"
-             android:layout_weight="1"
-             android:text="@string/strEducation"
-             android:layout_height="wrap_content" />
-         <EditText
-             android:layout_width="0dp"
-             android:layout_height="wrap_content"
-             android:layout_weight="3"/>
-
-     </LinearLayout>
-
-    <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:weightSum="4">
-     <TextView
-         android:layout_width="0dp"
-         android:layout_weight="1"
-         android:text="@string/strOcupation"
-         android:layout_height="wrap_content" />
-     <EditText
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:layout_weight="3"/>
- </LinearLayout>
-
-
-
-     <Button
-         android:id="@+id/btnSubmit"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="right"
-         android:background="@drawable/rounded_corners_green_button"
-         android:textColor="@color/white"
-         android:textSize="20sp"
-         android:text="Submit"/>
- </LinearLayout>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:inputType="text" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@drawable/rounded_corners_green_button"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
 </ScrollView>
 
 

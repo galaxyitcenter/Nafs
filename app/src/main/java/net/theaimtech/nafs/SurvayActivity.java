@@ -202,6 +202,10 @@ public class SurvayActivity extends AppCompatActivity
                 }
                 else
                 {
+                    String[] ans=null;
+                    ans[1]=ans1.getText().toString();
+                    View view=(View)findViewById(rg2.getCheckedRadioButtonId());
+
 
 
                 }

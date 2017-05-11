@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="All right reserved © NAFS"
+            android:text="@string/all_right_reserved_nabz"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -31,8 +31,9 @@
             android:id="@+id/topcontainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_alignParentTop="true"
-            android:orientation="vertical">
+            android:layout_alignParentStart="true">
 
             <ImageView
                 android:scaleY="1.8"
@@ -43,7 +44,7 @@
                 android:layout_gravity="center"
                 android:padding="15dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/logo" />
+                android:src="@drawable/nabz" />
 
             <TextView
                 android:id="@+id/textlogin"
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/padding_15"
-                android:text="Welcome to NAFS"
+                android:text="@string/welcome_to_nabz"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -61,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/padding_10"
-                android:text="Login here"
+                android:text="@string/login_here"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -72,7 +73,6 @@
             android:orientation="vertical"
             android:padding="15dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
             <EditText
@@ -83,7 +83,7 @@
                 android:drawableLeft="@drawable/ic_message"
                 android:drawablePadding="5dp"
                 android:drawableStart="@drawable/ic_message"
-                android:hint="Username"
+                android:hint="@string/username"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/padding_6" />
 
@@ -96,7 +96,7 @@
                 android:background="@drawable/rounded_corners_semi_white"
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawablePadding="5dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="@dimen/padding_6" />
 
@@ -109,7 +109,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_corners_green_button"
                 android:gravity="center"
-                android:text="Sign In"
+                android:text="@string/sign_in"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
