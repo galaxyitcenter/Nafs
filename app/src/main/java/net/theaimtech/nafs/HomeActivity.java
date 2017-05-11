@@ -1,7 +1,7 @@
 package net.theaimtech.nafs;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -21,9 +21,9 @@ import android.widget.Toast;
 import net.theaimtech.nafs.utils.Preference;
 
 public class HomeActivity extends AppCompatActivity {
-    WebView webview;
-    ProgressDialog diag;
-    boolean isLoadingGujarat;
+    private WebView webview;
+    private ProgressDialog diag;
+    private boolean isLoadingGujarat;
 
     @Override
     protected void onResume() {
@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         isLoadingGujarat = false;
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +45,12 @@ public class HomeActivity extends AppCompatActivity {
         webview.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         webview.getSettings().setDomStorageEnabled(true);
         webview.addJavascriptInterface(new MyJavaScriptInterface(), "HTMLOUT");
+        webview.getSettings().setSaveFormData(false);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setLoadWithOverviewMode(true);
         webview.loadUrl(ServerConstants.VOTER_ID);
         diag = new ProgressDialog(this);
-        diag.setTitle("Loading...");
+        diag.setMessage("Loading...");
         diag.show();
     }
 
@@ -99,29 +101,10 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
-    public class WebAppInterface {
-        Context mContext;
-
-        /**
-         * Instantiate the interface and set the context
-         */
-        WebAppInterface(Context c) {
-            mContext = c;
-        }
-
-        /**
-         * Show a toast from the web page
-         */
-        @JavascriptInterface
-        public void showToast(String toast) {
-            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
-        }
-
-
-    }
 
     private class MyWebViewClient extends WebViewClient {
 
+        @SuppressWarnings("deprecation")
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (Uri.parse(url).getHost().contains("gujarat")) {
@@ -157,12 +140,20 @@ public class HomeActivity extends AppCompatActivity {
 
             Thread OauthFetcher = new Thread(new Runnable() {
 
+                @SuppressWarnings("deprecation")
                 @Override
                 public void run() {
 
-                    String oAuthDetails = null;
-                    oAuthDetails = Html.fromHtml(html).toString();
+                final String  oAuthDetails = Html.fromHtml(html).toString();
                     Log.i("oAuthDetails", oAuthDetails);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            webview.setVisibility(View.VISIBLE);
+                            webview.loadData(html, "text/html", "UTF-8");
+                        }
+                    });
+
 
                 }
             });
