@@ -20,13 +20,21 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import net.theaimtech.nafs.network.CustomRequest;
 import net.theaimtech.nafs.utils.Preference;
 
+import java.util.HashMap;
+
 public class HomeActivity extends AppCompatActivity {
+    Button bopen;
     private WebView webview;
     private ProgressDialog diag;
     private boolean isLoadingGujarat;
-    Button bopen;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -40,11 +48,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setTitle("Welcome " + AppController.loggedInUser.getUsername());
         webview = (WebView) findViewById(R.id.wvMain);
-        bopen=(Button)findViewById(R.id.btnShowQ);
+        bopen = (Button) findViewById(R.id.btnShowQ);
         bopen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,SurveyActivity.class));
+                startActivity(new Intent(HomeActivity.this, SurveyActivity.class));
             }
         });
         webview.setWebViewClient(new MyWebViewClient());
@@ -59,7 +67,6 @@ public class HomeActivity extends AppCompatActivity {
         webview.getSettings().setLoadWithOverviewMode(true);
         webview.loadUrl(ServerConstants.VOTER_ID);
         diag = new ProgressDialog(this);
-        diag.setCancelable(false);
         diag.setMessage("Loading...");
         diag.show();
     }
@@ -111,6 +118,31 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+    public void getDetails(String data) {
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("uid", AppController.loggedInUser.getUsername());
+        map.put("data", data);
+
+
+        CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.LOGIN, null, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent view = new Intent(HomeActivity.this,ShowDetailsActivity.class);
+
+                view.putExtra("json", response);
+                startActivity(view);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }, this, "Submitting Data...");
+        AppController.getInstance().addToRequestQueue(request);
+
+    }
 
     private class MyWebViewClient extends WebViewClient {
 
@@ -137,6 +169,7 @@ public class HomeActivity extends AppCompatActivity {
         public void onLoadResource(WebView view, String url) {
             if (url.equals("http://erms.gujarat.gov.in/ceo-gujarat/master/images/banner.jpg")) {
                 view.setVisibility(View.GONE);
+                isLoadingGujarat = true;
                 diag.show();
 
             }
@@ -155,7 +188,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                final String  oAuthDetails = Html.fromHtml(html).toString();
+                    final String oAuthDetails = Html.fromHtml(html).toString();
                     Log.i("oAuthDetails", oAuthDetails);
                     runOnUiThread(new Runnable() {
                         @Override
@@ -164,6 +197,7 @@ public class HomeActivity extends AppCompatActivity {
                             webview.setVisibility(View.VISIBLE);
                             webview.loadData(html, "text/html", "UTF-8");
                             bopen.setVisibility(View.VISIBLE);
+                            getDetails(html);
 
                         }
                     });
