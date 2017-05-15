@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                             user.setId_token(obj.getString("id_token"));
                             AppController.loggedInUser = user;
                             Preference.getInstance().put(LoginActivity.this, "user", Preference.objectToString(user));
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, SurveyActivity.class));
                             finish();
 
                         } catch (JSONException e) {

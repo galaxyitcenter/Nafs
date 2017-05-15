@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         bopen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, SurveyActivity.class));
+                startActivity(new Intent(HomeActivity.this, ShowDetailsActivity.class));
             }
         });
         webview.setWebViewClient(new MyWebViewClient());
@@ -159,6 +159,8 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
+            view.setVisibility(View.GONE);
+            bopen.setVisibility(View.VISIBLE);
             if (isLoadingGujarat) {
                 webview.loadUrl("javascript:window.HTMLOUT.processHTML('<html>'+document.getElementById('gdGuj').innerHTML+'</html>');");
             }
