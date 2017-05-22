@@ -21,7 +21,10 @@ import net.theaimtech.nafs.utils.Preference;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.NetworkInterface;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -39,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         String loggedInUser=Preference.getInstance().getValue(this,"user","");
         if(!TextUtils.isEmpty(loggedInUser)){
             AppController.loggedInUser=(User)Preference.stringToObject(loggedInUser);
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
             return;
         }
@@ -51,18 +54,19 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(etPassword.getText())) {
-                    etPassword.setError("Username Required");
+                    etPassword.setError("Password Required");
                     return;
                 }
                 HashMap<String, String> params = new HashMap<>();
                 params.put("username", userName.getText().toString());
                 params.put("password", etPassword.getText().toString());
-                CustomRequest request = new CustomRequest(Request.Method.GET,ServerConstants.LOGIN+"?username="+userName.getText().toString()+"&password="+etPassword.getText().toString(), null, new Response.Listener<String>() {
+                params.put("mac",getMacAddr());
+                CustomRequest request = new CustomRequest(Request.Method.GET,ServerConstants.LOGIN+"?username="+userName.getText().toString()+"&password="+etPassword.getText().toString()+"&mac="+getMacAddr(), null, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.contains("404")) {
                             Log.e(TAG, response);
-                            Toast.makeText(LoginActivity.this, "Either Username or Password is wrong.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Username/Password/MAC is wrong.", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         try {
@@ -74,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                             user.setId_token(obj.getString("id_token"));
                             AppController.loggedInUser = user;
                             Preference.getInstance().put(LoginActivity.this, "user", Preference.objectToString(user));
-                            startActivity(new Intent(LoginActivity.this, SurveyActivity.class));
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
                             finish();
 
                         } catch (JSONException e) {
@@ -90,5 +94,30 @@ public class LoginActivity extends AppCompatActivity {
                 AppController.getInstance().addToRequestQueue(request);
             }
         });
+    }
+    public static String getMacAddr() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return "";
+                }
+
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(String.format("%02X:",b));
+                }
+
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception ex) {
+        }
+        return "02:00:00:00:00:00";
     }
 }

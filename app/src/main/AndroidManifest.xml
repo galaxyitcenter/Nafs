@@ -4,6 +4,9 @@
     package="net.theaimtech.nafs">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".AppController"
@@ -15,7 +18,9 @@
         tools:replace="android:icon">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -30,10 +35,14 @@
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenActivity" />
-        <activity
+       <!-- <activity
             android:name=".SurveyActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomeActivity"></activity>
-    </application>
+        <activity android:name=".HomeActivity"></activity>-->
+        <activity
+            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
+            android:theme="@style/Nabs" android:screenOrientation="portrait" />
 
-</manifest>
+</application>
+
+    </manifest>

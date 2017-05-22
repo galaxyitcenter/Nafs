@@ -94,9 +94,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_startover:
-                this.recreate();
-                return true;
+
             case R.id.action_logout:
                 Preference.getInstance().clear(this);
                 return true;
