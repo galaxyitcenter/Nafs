@@ -30,7 +30,7 @@ import java.util.List;
 public class EditTextFactory implements FormWidgetFactory {
 
     public static final int MIN_LENGTH = 0;
-    public static final int MAX_LENGTH = 100;
+    public static final int MAX_LENGTH = 1000;
     @Override
     public List<View> getViewsFromJson(String stepName, Context context, JSONObject jsonObject, CommonListener listener) throws Exception {
         int minLength = MIN_LENGTH;
@@ -40,6 +40,8 @@ public class EditTextFactory implements FormWidgetFactory {
                 R.layout.item_edit_text, null);
         editText.setHint(jsonObject.getString("hint"));
         editText.setFloatingLabelText(jsonObject.getString("hint"));
+        editText.setFloatingLabelAlwaysShown(true);
+        editText.setFloatingLabelAnimating(true);
         editText.setId(ViewUtil.generateViewId());
         editText.setTag(R.id.key, jsonObject.getString("key"));
         editText.setTag(R.id.type, jsonObject.getString("type"));
