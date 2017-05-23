@@ -10,6 +10,15 @@ public class User implements Serializable{
     String username;
     String address;
     String id;
+    String noOfSurvay;
+
+    public String getNoOfSurvay() {
+        return noOfSurvay;
+    }
+
+    public void setNoOfSurvay(String noOfSurvay) {
+        this.noOfSurvay = noOfSurvay;
+    }
 
     @Override
     public String toString() {
@@ -18,6 +27,7 @@ public class User implements Serializable{
                 ", address='" + address + '\'' +
                 ", id='" + id + '\'' +
                 ", id_token='" + id_token + '\'' +
+                ", noOfSurvay='"+noOfSurvay+'\''+
                 '}';
     }
 
