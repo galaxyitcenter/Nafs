@@ -23,8 +23,10 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.vijay.jsonwizard.activities.JsonFormActivity;
 
 import net.theaimtech.nafs.network.CustomRequest;
+import net.theaimtech.nafs.pojo.User;
 import net.theaimtech.nafs.utils.Preference;
 
 import java.util.HashMap;
@@ -34,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     private WebView webview;
     private ProgressDialog diag;
     private boolean isLoadingGujarat;
+    private int REQUEST_CODE_GET_JSON = 111;
 
     @Override
     protected void onResume() {
@@ -47,6 +50,24 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("Welcome " + AppController.loggedInUser.getUsername());
+
+        CustomRequest request = new CustomRequest(Request.Method.GET, ServerConstants.SEND_FORM, null, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent intent = new Intent(HomeActivity.this, JsonFormActivity.class);
+                intent.putExtra("json", response);
+                startActivityForResult(intent, REQUEST_CODE_GET_JSON);
+                Log.d(" DATA_SERVER",response);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }, this, "Fetching  survey...");
+        AppController.getInstance().addToRequestQueue(request);
+
         webview = (WebView) findViewById(R.id.wvMain);
         bopen = (Button) findViewById(R.id.btnShowQ);
         bopen.setOnClickListener(new View.OnClickListener() {

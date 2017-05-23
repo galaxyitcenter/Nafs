@@ -27,31 +27,57 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private int REQUEST_CODE_GET_JSON = 111;
     TextView counter;
     Button next;
+    private int REQUEST_CODE_GET_JSON = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        next= (Button) findViewById(R.id.btnNext);
+        next = (Button) findViewById(R.id.btnstartaurvey);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 showQuestion();
             }
         });
-        counter= (TextView) findViewById(R.id.tvCounter);
+        counter = (TextView) findViewById(R.id.tvCounter);
         counter.setText(AppController.loggedInUser.getNoOfSurvay());
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("id", AppController.loggedInUser.getId());
+
+        CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.FETCH_STATUS, map, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    counter.setText(object.getString("userSurvey"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }, this, "Loading...");
+        AppController.getInstance().addToRequestQueue(request);
+
+    }
+
+
+    public void showQuestion() {
         CustomRequest request = new CustomRequest(Request.Method.GET, ServerConstants.SEND_FORM, null, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(MainActivity.this, JsonFormActivity.class);
                 intent.putExtra("json", response);
                 startActivityForResult(intent, REQUEST_CODE_GET_JSON);
-                Log.d(" DATA_SERVER",response);
+                Log.d(" DATA_SERVER", response);
             }
 
         }, new Response.ErrorListener() {
@@ -62,34 +88,17 @@ public class MainActivity extends AppCompatActivity {
         }, this, "Fetching  survey...");
         AppController.getInstance().addToRequestQueue(request);
     }
-    public void showQuestion()
-    {
-        CustomRequest request = new CustomRequest(Request.Method.GET, ServerConstants.SEND_FORM, null, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Intent intent = new Intent(MainActivity.this, JsonFormActivity.class);
-                intent.putExtra("json", response);
-                startActivityForResult(intent, REQUEST_CODE_GET_JSON);
-                Log.d(" DATA_SERVER",response);
-            }
 
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }, this, "Fetching  survey...");
-        AppController.getInstance().addToRequestQueue(request);
-    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.action_logout) {
+        if (item.getItemId() == R.id.action_logout) {
             Preference.getInstance().clear(this);
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
         }
-       return true;
+        return true;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -100,23 +109,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
-            Log.d(TAG+"DATA COMING", data.getStringExtra("json"));
-            HashMap<String,String> parmas= new HashMap<>();
-            parmas.put("data",data.getStringExtra("json"));
-            parmas.put("userid",AppController.loggedInUser.getId());
+            Log.d(TAG + "DATA COMING", data.getStringExtra("json"));
+            HashMap<String, String> parmas = new HashMap<>();
+            parmas.put("data", data.getStringExtra("json"));
+            parmas.put("userid", AppController.loggedInUser.getId());
             CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.SUBMIT_SURVEY, parmas, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d(" DATA_SERVER",response);
-                   try
-                   {
-                       JSONObject obj = new JSONObject(response);
-                       counter.setText(obj.getString("userSurvey"));
-                       AppController.loggedInUser.setNoOfSurvay(obj.getString("userSurvey"));
-                   }catch (JSONException e)
-                   {
-                       Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-                   }
+                    Log.d(" DATA_SERVER", response);
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        counter.setText(obj.getString("userSurvey"));
+                        AppController.loggedInUser.setNoOfSurvay(obj.getString("userSurvey"));
+                    } catch (JSONException e) {
+                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }, new Response.ErrorListener() {
@@ -130,4 +137,23 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    public void startSurvery(View view) {
+        CustomRequest request = new CustomRequest(Request.Method.GET, ServerConstants.SEND_FORM, null, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent intent = new Intent(MainActivity.this, JsonFormActivity.class);
+                intent.putExtra("json", response);
+                startActivityForResult(intent, REQUEST_CODE_GET_JSON);
+                Log.d(" DATA_SERVER", response);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }, this, "Fetching  survey...");
+        AppController.getInstance().addToRequestQueue(request);
+
+    }
 }
