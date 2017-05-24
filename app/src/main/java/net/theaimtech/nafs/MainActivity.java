@@ -3,13 +3,13 @@ package net.theaimtech.nafs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -43,10 +43,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         counter = (TextView) findViewById(R.id.tvCounter);
-        counter.setText(AppController.loggedInUser.getNoOfSurvay());
-
         HashMap<String, String> map = new HashMap<>();
-        map.put("id", AppController.loggedInUser.getId());
+        map.put("id", AppController.getInstance().loggedInUser.getId());
 
         CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.FETCH_STATUS, map, new Response.Listener<String>() {
             @Override
@@ -100,6 +98,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+      counter.setText((!TextUtils.isEmpty(Preference.getInstance().getValue(this,"counter","")))?Preference.getInstance().getValue(this,"counter",""):"0");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu
@@ -110,29 +114,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
             Log.d(TAG + "DATA COMING", data.getStringExtra("json"));
-            HashMap<String, String> parmas = new HashMap<>();
-            parmas.put("data", data.getStringExtra("json"));
-            parmas.put("userid", AppController.loggedInUser.getId());
-            CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.SUBMIT_SURVEY, parmas, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.d(" DATA_SERVER", response);
-                    try {
-                        JSONObject obj = new JSONObject(response);
-                        counter.setText(obj.getString("userSurvey"));
-                        AppController.loggedInUser.setNoOfSurvay(obj.getString("userSurvey"));
-                    } catch (JSONException e) {
-                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-
-                }
-            }, this, "Submitting  survey...");
-            AppController.getInstance().addToRequestQueue(request);
+            Preference.getInstance().put(this, AppController.SURVEY,data.getStringExtra("json"));
+            startActivity(new Intent(this,OtpActivity.class));
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

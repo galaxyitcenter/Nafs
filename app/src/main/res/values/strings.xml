@@ -39,7 +39,14 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
-    <string name="validateOTP">You need to verify your mobile number.\n An OTP has been sent to your\n Registerd mobile number\n Please Enter OTP and Click Submmit to Access App</string>
+    <string name="validateOTP">You need to verify your mobile number.\n An OTP has been sent to your\n Registerd mobile number\n Please Enter OTP and Click Submit to Access App</string>
+    <string name="validate_otp">Validate OTP</string>
+    <string name="input_name">Please input name of the person for survey, also take photograph by pressing Take Photo button.</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="phone_number">Phone number</string>
+    <string name="name">Name</string>
 
 
 </resources>

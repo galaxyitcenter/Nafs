@@ -19,16 +19,27 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenActivity" />
+
+
         <!--
         <activity
             android:name=".SurveyActivity"
@@ -39,14 +50,11 @@
             android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Nabs" />
-        <activity android:name="net.theaimtech.nabz.Otp" />
-        <activity android:name=".Otp">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".OtpActivity"
+            android:screenOrientation="portrait" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>

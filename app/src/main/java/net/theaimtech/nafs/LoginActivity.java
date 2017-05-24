@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.etPassword);
         String loggedInUser=Preference.getInstance().getValue(this,"user","");
         if(!TextUtils.isEmpty(loggedInUser)){
-            AppController.loggedInUser=(User)Preference.stringToObject(loggedInUser);
+            AppController.getInstance().loggedInUser=(User)Preference.stringToObject(loggedInUser);
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
             return;

@@ -26,7 +26,6 @@ import com.android.volley.VolleyError;
 import com.vijay.jsonwizard.activities.JsonFormActivity;
 
 import net.theaimtech.nafs.network.CustomRequest;
-import net.theaimtech.nafs.pojo.User;
 import net.theaimtech.nafs.utils.Preference;
 
 import java.util.HashMap;
@@ -49,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setTitle("Welcome " + AppController.loggedInUser.getUsername());
+        setTitle("Welcome " + AppController.getInstance().loggedInUser.getUsername());
 
         CustomRequest request = new CustomRequest(Request.Method.GET, ServerConstants.SEND_FORM, null, new Response.Listener<String>() {
             @Override
@@ -140,7 +139,7 @@ public class HomeActivity extends AppCompatActivity {
     public void getDetails(String data) {
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("uid", AppController.loggedInUser.getUsername());
+        map.put("uid", AppController.getInstance().loggedInUser.getUsername());
         map.put("data", data);
 
 

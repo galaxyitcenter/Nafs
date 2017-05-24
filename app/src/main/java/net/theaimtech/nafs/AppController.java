@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,6 +22,7 @@ import net.theaimtech.nafs.utils.Preference;
 public class AppController extends Application {
 
     public static final String TAG = AppController.class.getSimpleName();
+    public static final String SURVEY = "survey";
     public static User loggedInUser;
     private static AppController application;
     private static AppController mInstance;
@@ -32,6 +34,7 @@ public class AppController extends Application {
         String user = Preference.getInstance().getValue(getApplication(), "user", "");
         if (!TextUtils.isEmpty(user)) {
             loggedInUser = (User) Preference.stringToObject(user);
+            Log.i("USER",loggedInUser.getUsername());
         }
 
         return mInstance;
