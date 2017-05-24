@@ -18,31 +18,35 @@
         tools:replace="android:icon">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenActivity">
+
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenActivity" />
+        <!--
+        <activity
+            android:name=".SurveyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".HomeActivity"></activity>
+        -->
+        <activity
+            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Nabs" />
+        <activity android:name="net.theaimtech.nabz.Otp" />
+        <activity android:name=".Otp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullScreenActivity" />
-       <!-- <activity
-            android:name=".SurveyActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".HomeActivity"></activity>-->
-        <activity
-            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
-            android:theme="@style/Nabs" android:screenOrientation="portrait" />
+    </application>
 
-</application>
-
-    </manifest>
+</manifest>
