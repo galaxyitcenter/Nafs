@@ -89,13 +89,14 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 Uri resultUri = result.getUri();
-                ivUserImage.setImageURI(resultUri);
+
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
+                    ivUserImage.setImageBitmap(bitmap);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 50, byteArrayOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 40, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    encoded = Base64.encodeToString(byteArray, Base64.URL_SAFE);
+                    encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
                     btnTakePhoto.setText("Re-Take");
                     item.setVisible(true);
                 } catch (IOException e) {
@@ -151,7 +152,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
             public void onErrorResponse(VolleyError error) {
 
             }
-        }, this, "Submitting  survey...");
+        }, this, "Sending OTP...");
         AppController.getInstance().addToRequestQueue(request);
     }
 
@@ -207,6 +208,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                         parmas.put("photo", encoded);
                         parmas.put("name", etName.getText().toString().trim());
                         parmas.put("userid", AppController.getInstance().loggedInUser.getId());
+                        Log.i("PARAMS_CUST_REQUEST",encoded);
                         CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.SUBMIT_SURVEY, parmas, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -228,9 +230,9 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                             }
                         }, this, "Submitting  survey...");
                         AppController.getInstance().addToRequestQueue(request);
-                    } else {
-                        Toast.makeText(this, "Wrong OTP Please try again!", Toast.LENGTH_SHORT).show();
                     }
+                }else {
+                    Toast.makeText(this, "Wrong OTP Please try again!", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
