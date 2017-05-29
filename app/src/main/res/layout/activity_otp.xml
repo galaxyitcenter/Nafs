@@ -70,6 +70,7 @@
 
 
         <Button
+
             android:id="@+id/btnTakePhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +80,7 @@
             android:drawableEnd="@drawable/ic_rt"
             android:paddingLeft="@dimen/value_5dp"
             android:paddingRight="@dimen/value_5dp"
-            android:text="@string/take_photo"
+            android:text="@string/submit"
             android:textColor="@color/white"
             android:textSize="@dimen/value_13sp" />
 

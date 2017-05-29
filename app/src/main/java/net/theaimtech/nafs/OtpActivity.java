@@ -94,11 +94,11 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
                     ivUserImage.setImageBitmap(bitmap);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 40, byteArrayOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 20, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
                     btnTakePhoto.setText("Re-Take");
-                    item.setVisible(true);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -141,6 +141,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                     otp = !TextUtils.isEmpty(obj.getString("otp")) ? obj.getString("otp") : "undefined";
                     llGetOTP.setVisibility(View.VISIBLE);
                     llPhotoContact.setVisibility(View.GONE);
+                    //llPhotoContact.setVisibility(View.GONE);
                     item.setVisible(false);
                 } catch (JSONException e) {
                     Log.i(TAG, "onResponse: " + e.getMessage());
@@ -194,7 +195,8 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnTakePhoto:
-                startActivityForResult(CropImage.getCameraIntent(this, null), CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE);
+               // startActivityForResult(CropImage.getCameraIntent(this, null), CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE);
+                sendOtpRequest();
                 break;
             case R.id.btnResend:
                 sendOtpRequest();
@@ -205,10 +207,10 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
                     if (!TextUtils.isEmpty(data)) {
                         HashMap<String, String> parmas = new HashMap<>();
                         parmas.put("data", data);
-                        parmas.put("photo", encoded);
+                       // parmas.put("photo", encoded);
                         parmas.put("name", etName.getText().toString().trim());
                         parmas.put("userid", AppController.getInstance().loggedInUser.getId());
-                        Log.i("PARAMS_CUST_REQUEST",encoded);
+//                        Log.i("PARAMS_CUST_REQUEST",encoded);
                         CustomRequest request = new CustomRequest(Request.Method.POST, ServerConstants.SUBMIT_SURVEY, parmas, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
